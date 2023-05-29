@@ -3,30 +3,8 @@ import 'package:flutter/material.dart';
 
 class SQLHelper{
   static Future<void> createTables(sql.Database database)async{
-    await database.execute(
-      """  
-      CREATE TABLE INCOME(
-      id INTEGER PRIMARY KEY NOT NULL,
-      Name TEXT,
-      Source TEXT,
-      Category TEXT,
-      Amount INTEGER,
-      Date TEXT 
-      )
-      """
-    );
-    await database.execute(
-      """  
-      CREATE TABLE EXPANSE(
-      id INTEGER PRIMARY KEY NOT NULL,
-      Name TEXT,
-      Source TEXT,
-      Category TEXT,
-      Amount INTEGER,
-      Date TEXT 
-      ),
-      """
-    );
+    await database.execute('CREATE TABLE INCOME(id INTEGER PRIMARY KEY NOT NULL, Name TEXT, Source TEXT, Category TEXT, Amount INTEGER, Date TEXT)',);
+    await database.execute('CREATE TABLE EXPANSE(id INTEGER PRIMARY KEY NOT NULL,Name TEXT,Source TEXT,Category TEXT,Amount INTEGER,Date TEXT),');
   }
   static Future<sql.Database> db() async{
     return sql.openDatabase(
@@ -60,6 +38,10 @@ class SQLHelper{
   static Future<List<Map<String,dynamic>>> getItems()  async {
     final db=await SQLHelper.db();
     return db.query('INCOME', orderBy: "id");
+  }
+  static Future<List<Map<String,dynamic>>> getItems2()  async {
+    final db=await SQLHelper.db();
+    return db.query('EXPANSE', orderBy: "id");
   }
   static Future<int> updateIncome(int id,String name,String Source,String category,String Amount,String date) async{
     final db =await SQLHelper.db();

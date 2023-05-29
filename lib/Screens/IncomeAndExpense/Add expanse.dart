@@ -37,7 +37,7 @@ class _AddExpanseState extends State<AddExpanse> {
   List<Map<String,dynamic>> _journals= [];
   bool _isloading=true;
   void _refreshJournals() async{
-    final data=await SQLHelper.getItems();
+    final data=await SQLHelper.getItems2();
     setState(() {
       _journals=data;
       _isloading=false;
