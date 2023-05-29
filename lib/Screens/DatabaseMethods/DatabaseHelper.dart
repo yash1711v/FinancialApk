@@ -31,7 +31,6 @@ class SQLHelper{
     final id=await db.insert('EXPANSE', data,
         conflictAlgorithm:sql.ConflictAlgorithm.replace);
     return id;
-
   }
 
 

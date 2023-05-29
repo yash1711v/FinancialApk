@@ -1,4 +1,5 @@
 import 'package:financeapk/Screens/DatabaseMethods/DatabaseHelper.dart';
+import 'package:financeapk/Screens/IncomeAndExpense/UpdateIncome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -62,7 +63,7 @@ class _IncomeState extends State<Income> {
                   child: Row(
                     children: [
                       IconButton(onPressed: (){
-
+                        Get.to(UpdateItem(),arguments: [{'id': _journals[index]['id']}]);
                       }, icon: const Icon(Icons.edit))
                     ],
                   ),

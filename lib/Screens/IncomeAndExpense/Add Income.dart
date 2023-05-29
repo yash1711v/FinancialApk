@@ -1,5 +1,4 @@
 import 'package:financeapk/Screens/DatabaseMethods/DatabaseHelper.dart';
-import 'package:financeapk/Screens/DatabaseMethods/db_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 Size size = WidgetsBinding.instance.window.physicalSize /
@@ -52,9 +51,11 @@ class _AddIncomeState extends State<AddIncome> {
       _isloading=false;
     });
   }
+
   void initState(){
     super.initState();
     _refreshJournals();
+
   }
 
   @override
