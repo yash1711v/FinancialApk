@@ -1,5 +1,7 @@
 import 'package:financeapk/Screens/DatabaseMethods/DatabaseHelper.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:sqflite/sqflite.dart';
 Size size = WidgetsBinding.instance.window.physicalSize /
     WidgetsBinding.instance.window.devicePixelRatio;
@@ -240,6 +242,7 @@ class _AddIncomeState extends State<AddIncome> {
                       child: ElevatedButton(
                         onPressed: () async{
                             await _addItem();
+                            Get.back;
                         },
                         child: Text("Add Income"),
                         style: ElevatedButton.styleFrom(
